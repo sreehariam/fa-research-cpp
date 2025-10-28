@@ -8,9 +8,11 @@ FlashAttention-inspired attention library (C++ only, CPU reference). CUDA suppor
 
 ## Build & Test (CPU-only)
 ```bash
-cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DUSE_CUDA=OFF
-cmake --build build --config Debug -j
-ctest --test-dir build -C Debug --output-on-failure
+rmdir /s /q build
+cmake -S . -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DUSE_CUDA=OFF
+cmake --build build -j
+ctest --test-dir build --output-on-failure
+
 
 ## Files
 include/fa/
