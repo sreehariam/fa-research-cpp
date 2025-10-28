@@ -1,0 +1,40 @@
+# CMake / build
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/*.sln
+/*.vcxproj*
+/*.vcxproj.filters
+/*.vcxproj.user
+/compile_commands.json
+/_deps/
+/lib/
+/bin/
+/out/
+/Debug/
+/Release/
+/x64/
+/_testing/
+/_generated/
+/cmake-install.cmake
+
+# Ninja/MSBuild extras
+/*.ninja
+/.ninja_*
+/*.obj
+/*.pdb
+/*.ilk
+/*.idb
+/*.tlog/
+*.log
+
+# VS/VSCode
+/.vs/
+/.vscode/
+*.user
+*.opendb
+
+# OS noise
+.DS_Store
+Thumbs.db
+
