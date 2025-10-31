@@ -1,6 +1,6 @@
 #pragma once
-#include "fa/tensor.hpp"
 #include "fa/types.hpp"
+#include "fa/tensor.hpp"
 
 namespace fa {
 
