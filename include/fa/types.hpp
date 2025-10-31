@@ -5,7 +5,8 @@ namespace fa {
 
 struct AttentionOpts {
     bool  causal      = false;
-    float temperature = 1.0f;  // PR4
+    float temperature = 1.0f; 
+	float dropout_prob  = 0.0f;
 };
 
 } // namespace fa

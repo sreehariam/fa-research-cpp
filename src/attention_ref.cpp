@@ -24,6 +24,10 @@ Tensor attention_forward(const Tensor& Q,
                          const Tensor* mask,
                          const AttentionOpts& opts)
 {
+  if (std::isnan(opts.dropout_prob) || opts.dropout_prob < 0.0f || opts.dropout_prob > 1.0f)
+    throw std::invalid_argument("attention_forward: dropout_prob must be between 0 and 1 and not NaN");
+
+
   validate_core(Q,K,V);
   const int B=Q.dim(0), H=Q.dim(1), N=Q.dim(2), D=Q.dim(3);
   if (mask) fa::mask::validate_padding_mask_b11n(Q, *mask);
