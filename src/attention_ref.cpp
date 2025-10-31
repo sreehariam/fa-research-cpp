@@ -47,6 +47,15 @@ Tensor attention_forward(const Tensor& Q,
           const float ninf = fa::math::neg_inf();
           for (int j=i+1; j<N; ++j) logits[j] = ninf;
         }
+		
+		float temp = opts.temperature;
+        if (temp <= 0.0f)
+            throw std::invalid_argument("attention_forward: temperature must be positive");
+        
+        if (temp != 1.0f) {
+            for (int j = 0; j < N; ++j)
+                logits[j] /= temp;
+        }
 
         // PADDING: apply mask (non-zero=keep, zero=masked)
         if (mask) fa::mask::apply_padding_mask_logits(logits, *mask, b, N);
